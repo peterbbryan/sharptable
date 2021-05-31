@@ -1,10 +1,21 @@
 from abc import ABC, abstractmethod
 
+from sharptable import datastores
+from sharptable.datastores import Datastore
+
 
 class Table(ABC):
     """
     ABC for sharptable table types.
     """
+
+    def __init__(self, datastore: Datastore):
+        """
+        Args:
+            datastore: sharptable datastore.
+        """
+
+        self._datastore = datastore
 
     @abstractmethod
     def show(self) -> None:

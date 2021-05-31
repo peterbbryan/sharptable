@@ -10,4 +10,4 @@ format:
 check:
 	isort -c $(PYTHON_FILES)
 	black --check $(PYTHON_FILES)
-
+	mypy $(PYTHON_FILES)

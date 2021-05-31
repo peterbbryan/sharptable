@@ -5,7 +5,7 @@ from sharptable.datastores import Datastore
 
 class PandasDatastore(Datastore):
     """
-    Pandas DataFrame backing data store for table.
+    Pandas DataFrame backing datastore for table.
     """
 
     def __init__(self, df: pd.DataFrame):
