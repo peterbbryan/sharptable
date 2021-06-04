@@ -1,1 +1,2 @@
 from sharptable.datastores.datastore import Datastore
+from sharptable.datastores.pandas_datastore import PandasDatastore

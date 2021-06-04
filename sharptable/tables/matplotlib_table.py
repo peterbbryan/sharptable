@@ -14,3 +14,20 @@ class MatplotlibTable(Table):
         """
 
         super().__init__(datastore=datastore)
+
+    def save_fig(self, path: str) -> None:
+        """
+        Save table to path.
+        
+        Args:
+            path: Path to write table to.
+        """
+
+        raise NotImplementedError
+
+    def show(self) -> None:
+        """
+        Show table in interactive sessions.
+        """
+
+        raise NotImplementedError

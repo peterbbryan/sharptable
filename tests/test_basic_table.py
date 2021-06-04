@@ -21,8 +21,12 @@ def sample_pandas_df() -> pd.DataFrame:
 
 def test_basic_table_visualization() -> None:
     """
+    Basic plotting t
     """
 
     df = sample_pandas_df()
 
-    sharptable.tables
+    ds = sharptable.datastores.PandasDatastore(df)
+    table = sharptable.tables.MatplotlibTable(ds)
+
+    table.show()
