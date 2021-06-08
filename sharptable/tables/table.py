@@ -26,7 +26,7 @@ class Table(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def save_fig(self, path: str) -> None:
+    def savefig(self, path: str) -> None:
         """
         Save table to path.
         

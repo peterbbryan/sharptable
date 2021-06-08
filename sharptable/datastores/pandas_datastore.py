@@ -1,3 +1,6 @@
+from typing import Any, List
+
+import numpy as np
 import pandas as pd
 
 from sharptable.datastores import Datastore
@@ -15,3 +18,27 @@ class PandasDatastore(Datastore):
         """
 
         self._df = df
+
+    @property
+    def columns(self) -> List[Any]:
+        """
+        Column labels for the table.
+        """
+
+        return self._df.columns
+
+    @property
+    def rows(self) -> List[Any]:
+        """
+        Row labels for the table.
+        """
+
+        return self._df.index.values
+
+    @property
+    def values(self) -> np.ndarray:
+        """
+        Data structure for table values.
+        """
+
+        return self._df.values
