@@ -1,5 +1,8 @@
 import pathlib
+from os import stat
+from typing import Tuple
 
+import matplotlib
 import matplotlib.pyplot as plt
 
 from sharptable.datastores import Datastore, PandasDatastore
@@ -33,6 +36,14 @@ class MatplotlibTable(Table):
 
         self._ax.set_axis_off()
 
+    @staticmethod
+    def _get_bounding_box(padding_px: int) -> Tuple:
+        """
+        TODO fix type hint and returns to use savefig
+        """
+
+        ...
+
     def savefig(self, path: str, extension: str = ".png") -> None:
         """
         Save table to path.
@@ -44,7 +55,16 @@ class MatplotlibTable(Table):
 
         save_path = pathlib.Path(path).with_suffix(extension)
 
-        self._fig.savefig(save_path)
+        self._fig.canvas.draw()
+        # get bounding box of table
+        points = self._table.get_window_extent(plt.gcf()._cachedRenderer).get_points()
+        # add 10 pixel spacing
+        points[0, :] -= 10
+        points[1, :] += 10
+        # get new bounding box in inches
+        nbbox = matplotlib.transforms.Bbox.from_extents(points / plt.gcf().dpi)
+
+        self._fig.savefig(save_path, bbox_inches=nbbox)
 
     def show(self) -> None:
         """

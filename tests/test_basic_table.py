@@ -8,7 +8,7 @@ def _sample_pandas_df() -> pd.DataFrame:
     Sample DataFrame for basic testing and experimentation.
 
     Returns:
-
+        TODO
     """
 
     df = pd.DataFrame([{"a": 1, "b": 2}, {"a": 3, "b": 4}])
@@ -20,10 +20,10 @@ def test_basic_table_visualization() -> None:
     Basic plotting test.
     """
 
-    df = _sample_pandas_df()
+    dataframe = _sample_pandas_df()
 
-    ds = sharptable.datastores.PandasDatastore(df)
-    table = sharptable.tables.MatplotlibTable(ds)
+    datastore = sharptable.datastores.PandasDatastore(dataframe)
+    table = sharptable.tables.MatplotlibTable(datastore)
 
     table.show()
 
@@ -32,9 +32,9 @@ def test_basic_table_save() -> None:
     """
     """
 
-    df = _sample_pandas_df()
+    dataframe = _sample_pandas_df()
 
-    ds = sharptable.datastores.PandasDatastore(df)
-    table = sharptable.tables.MatplotlibTable(ds)
+    datastore = sharptable.datastores.PandasDatastore(dataframe)
+    table = sharptable.tables.MatplotlibTable(datastore)
 
     table.savefig("temp")
