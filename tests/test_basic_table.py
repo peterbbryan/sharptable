@@ -1,3 +1,6 @@
+"""
+"""
+
 import pandas as pd
 
 import sharptable
@@ -11,8 +14,8 @@ def _sample_pandas_df() -> pd.DataFrame:
         TODO
     """
 
-    df = pd.DataFrame([{"a": 1, "b": 2}, {"a": 3, "b": 4}])
-    return df
+    dataframe = pd.DataFrame([{"a": 1, "b": 2}, {"a": 3, "b": 4}])
+    return dataframe
 
 
 def test_basic_table_visualization() -> None:

@@ -1,11 +1,10 @@
 import pathlib
-from os import stat
 from typing import Tuple
 
 import matplotlib
 import matplotlib.pyplot as plt
 
-from sharptable.datastores import Datastore, PandasDatastore
+from sharptable.datastores import Datastore
 from sharptable.tables.table import Table
 
 
@@ -42,12 +41,14 @@ class MatplotlibTable(Table):
         TODO fix type hint and returns to use savefig
         """
 
-        ...
+        del padding_px
+
+        return ()
 
     def savefig(self, path: str, extension: str = ".png") -> None:
         """
         Save table to path.
-        
+
         Args:
             path: Path to write table to.
             extension: TODO

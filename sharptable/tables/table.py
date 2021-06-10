@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-from sharptable import datastores
 from sharptable.datastores import Datastore
 
 
