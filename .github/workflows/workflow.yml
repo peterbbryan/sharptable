@@ -19,4 +19,7 @@ jobs:
     steps:
     - name: MyPy check.
       run: |
-        conda install mypy
+        conda env create -f environment.yml 
+        conda activate sharptable_env
+        make check
+        make test
