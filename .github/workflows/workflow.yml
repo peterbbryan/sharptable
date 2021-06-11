@@ -22,10 +22,10 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.6
-    - name: Run
-      run: |
-        conda update -n base -c defaults conda
     - name: Install dependencies and activate
       run: | 
         python -m pip install -U pip
         pip install -r requirements.txt
+    - name: Run make linting checks
+      run: |
+        make check
