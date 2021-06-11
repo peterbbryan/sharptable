@@ -1,6 +1,0 @@
-name: sharptable_env
-channels:
-  - defaults
-dependencies:
-  - matplotlib=3.3.4
-  - pandas=1.2.4
