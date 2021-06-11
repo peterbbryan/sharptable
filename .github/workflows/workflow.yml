@@ -19,5 +19,4 @@ jobs:
     steps:
     - name: MyPy check.
       run: |
-       - name: List files in the repository
          ls ${{ github.workspace }}
