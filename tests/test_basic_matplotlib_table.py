@@ -34,6 +34,7 @@ def test_basic_table_visualization() -> None:
 
 def test_basic_table_save() -> None:
     """
+    Test table save to image.
     """
 
     dataframe = _sample_pandas_df()
