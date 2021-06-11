@@ -20,7 +20,7 @@ class PandasDatastore(Datastore):
         self._df = df
 
     @property
-    def columns(self) -> List[Any]:
+    def column_names(self) -> List[Any]:
         """
         Column labels for the table.
         """
@@ -28,7 +28,7 @@ class PandasDatastore(Datastore):
         return self._df.columns
 
     @property
-    def rows(self) -> List[Any]:
+    def row_names(self) -> List[Any]:
         """
         Row labels for the table.
         """

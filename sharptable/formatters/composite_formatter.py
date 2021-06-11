@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from sharptable.formatters.formatter import Formatter
+from .formatter import Formatter
 
 
 class CompositeFormatter(Formatter):

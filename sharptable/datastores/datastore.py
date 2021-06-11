@@ -8,7 +8,7 @@ class Datastore(ABC):
     """
 
     @abstractproperty
-    def columns(self) -> List[Any]:
+    def column_names(self) -> List[Any]:
         """
         Column labels for the table.
         """
@@ -16,7 +16,7 @@ class Datastore(ABC):
         raise NotImplementedError
 
     @abstractproperty
-    def rows(self) -> List[Any]:
+    def row_names(self) -> List[Any]:
         """
         Row labels for the table.
         """

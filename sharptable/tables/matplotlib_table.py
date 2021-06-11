@@ -23,8 +23,8 @@ class MatplotlibTable(Table):
 
         self._table = plt.table(
             cellText=self._datastore.values,
-            rowLabels=self._datastore.rows,
-            colLabels=self._datastore.columns,
+            rowLabels=self._datastore.row_names,
+            colLabels=self._datastore.column_names,
             cellLoc="center",
             rowLoc="center",
             loc="top",
