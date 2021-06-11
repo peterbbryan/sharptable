@@ -26,13 +26,5 @@ jobs:
       run: |
         conda update -n base -c defaults conda
     - name: Install dependencies and activate
-      run: |
-        conda env create -f environment.yml
-        conda activate sharptable_env
-    - name: Run linting checks
       run: | 
-        make check
-    - name: Run tests
-      run: |
-        make test
-        
+        pip install -r requirements.txt
