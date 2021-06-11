@@ -3,7 +3,7 @@ from typing import Any, List
 import numpy as np
 import pandas as pd
 
-from sharptable.datastores import Datastore
+from .datastore import Datastore
 
 
 class PandasDatastore(Datastore):
