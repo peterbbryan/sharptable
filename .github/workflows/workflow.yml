@@ -19,4 +19,4 @@ jobs:
     steps:
     - name: MyPy check.
       run: |
-      $CONDA/bin/conda install mypy
+        conda install mypy
