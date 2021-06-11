@@ -25,10 +25,10 @@ class Table(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def savefig(self, path: str) -> None:
+    def savefig(self, path: str, extension: str = ".png") -> None:
         """
         Save table to path.
-        
+
         Args:
             path: Path to write table to.
         """

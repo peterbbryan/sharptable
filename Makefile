@@ -1,7 +1,7 @@
 PYTHON = python3
 PYTHON_FILES := $(shell find . -name "*.py")
 
-.PHONY = format check
+.PHONY = check format test
 
 format:
 	isort $(PYTHON_FILES)
@@ -12,3 +12,6 @@ check:
 	black --check $(PYTHON_FILES)
 	mypy $(PYTHON_FILES)
 	pylint $(PYTHON_FILES)
+
+test:
+	python -m pytest

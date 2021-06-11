@@ -58,7 +58,10 @@ class MatplotlibTable(Table):
 
         self._fig.canvas.draw()
         # get bounding box of table
-        points = self._table.get_window_extent(plt.gcf()._cachedRenderer).get_points()
+        points = self._table.get_window_extent(
+            plt.gcf()._cachedRenderer  # pylint: disable=protected-access
+        ).get_points()
+
         # add 10 pixel spacing
         points[0, :] -= 10
         points[1, :] += 10

@@ -1,4 +1,5 @@
 """
+Basic tests to make sure matplotlib tables plot without error.
 """
 
 import pandas as pd
