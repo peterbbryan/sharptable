@@ -35,6 +35,16 @@ class MatplotlibTable(Table):
 
         self._ax.set_axis_off()
 
+    def _apply_formatter(self) -> None:
+        """
+        Apply all formatters.
+        """
+
+        if self._formatter is None:
+            return
+
+        self._formatter.apply(self._table)
+
     @staticmethod
     def _get_bounding_box(padding_px: int) -> Tuple:
         """
@@ -65,6 +75,7 @@ class MatplotlibTable(Table):
         # add 10 pixel spacing
         points[0, :] -= 10
         points[1, :] += 10
+
         # get new bounding box in inches
         nbbox = matplotlib.transforms.Bbox.from_extents(points / plt.gcf().dpi)
 
@@ -74,5 +85,8 @@ class MatplotlibTable(Table):
         """
         Show table in interactive sessions.
         """
+
+        # apply all formatters before showing
+        self._apply_formatter()
 
         self._fig.show()
