@@ -15,6 +15,7 @@ class Table(ABC):
         """
 
         self._datastore = datastore
+        self._formatter = None
 
     @abstractmethod
     def show(self) -> None:
