@@ -9,7 +9,7 @@ format:
 
 check:	
 	isort -c $(PYTHON_FILES)
-	black --check $(PYTHON_FILES)
+	black --check --verbose $(PYTHON_FILES)
 	mypy $(PYTHON_FILES)
 	pylint $(PYTHON_FILES)
 

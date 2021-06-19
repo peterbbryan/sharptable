@@ -18,6 +18,14 @@ class Table(ABC):
         self._formatter = None
 
     @abstractmethod
+    def _apply_formatter(self) -> None:
+        """
+        Apply all formatters.
+        """
+
+        raise NotImplementedError
+
+    @abstractmethod
     def show(self) -> None:
         """
         Show table in interactive sessions.
