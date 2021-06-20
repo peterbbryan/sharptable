@@ -19,7 +19,7 @@ def _sample_pandas_df() -> pd.DataFrame:
     return dataframe
 
 
-def test_basic_table_visualization() -> None:
+def test_basic_matplotlib_table_visualization() -> None:
     """
     Basic plotting test.
     """
@@ -32,7 +32,22 @@ def test_basic_table_visualization() -> None:
     table.show()
 
 
-def test_basic_table_save() -> None:
+def test_matplotlib_cell_bolding() -> None:
+    """
+    Test cell bolding.
+    
+    """
+    # pylint: disable-all
+
+    dataframe = _sample_pandas_df()
+
+    datastore = sharptable.datastores.PandasDatastore(dataframe)
+    table = sharptable.tables.MatplotlibTable(datastore)
+
+    bold_formatter = sharptable.formatters.BoldCellFormatter(1, 2)
+
+
+def test_basic_matplotlib_table_save() -> None:
     """
     Test table save to image.
     """

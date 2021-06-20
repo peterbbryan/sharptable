@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
+from typing import Optional
 
 from sharptable.datastores import Datastore
+from sharptable.formatters import Formatter
 
 
 class Table(ABC):
@@ -15,7 +17,19 @@ class Table(ABC):
         """
 
         self._datastore = datastore
-        self._formatter = None
+        self._formatter: Optional[Formatter] = None
+
+    @property
+    def formatter(self) -> Optional[Formatter]:
+        """ Formatter getter """
+
+        return self._formatter
+
+    @formatter.setter
+    def formatter(self, value: Optional[Formatter]) -> None:
+        """ Formatter setter """
+
+        self._formatter = value
 
     @abstractmethod
     def _apply_formatter(self) -> None:

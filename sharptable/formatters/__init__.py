@@ -1,3 +1,4 @@
-from sharptable.formatters.cell_formatter import CellFormatter
-from sharptable.formatters.composite_formatter import CompositeFormatter
-from sharptable.formatters.formatter import Formatter
+from .cell_formatter import CellFormatter
+from .cell_formatters.bold_cell_formatter import BoldCellFormatter
+from .composite_formatter import CompositeFormatter
+from .formatter import Formatter

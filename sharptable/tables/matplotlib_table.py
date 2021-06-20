@@ -35,6 +35,12 @@ class MatplotlibTable(Table):
 
         self._ax.set_axis_off()
 
+    @property
+    def ax(self):  # pylint: disable=invalid-name
+        """ Ax getter """
+
+        return self._ax
+
     def _apply_formatter(self) -> None:
         """
         Apply all formatters.
