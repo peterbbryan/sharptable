@@ -38,8 +38,6 @@ class CellFormatter(Formatter):
         return self._column
 
 
-'''
-
 class BoldCellFormatter(CellFormatter):
     """
     Bold a specific cell.
@@ -85,4 +83,3 @@ class BoldCellFormatter(CellFormatter):
             self._matplotlib_apply(table)
         else:
             raise NotImplementedError
-'''
