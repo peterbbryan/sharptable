@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
+from typing import TYPE_CHECKING
 
-from sharptable.tables import Table
+if TYPE_CHECKING:
+    from sharptable.tables import Table
 
 
 class Formatter(ABC):
@@ -9,7 +11,7 @@ class Formatter(ABC):
     """
 
     @abstractmethod
-    def apply(self, table: Table) -> None:
+    def apply(self, table: "Table") -> None:
         """
         Apply transform to sharptable.
 

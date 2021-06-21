@@ -1,9 +1,13 @@
+from typing import TYPE_CHECKING
+
 import matplotlib
 
-from sharptable.tables import Table
 from sharptable.tables.matplotlib_table import MatplotlibTable
 
 from ..cell_formatter import CellFormatter
+
+if TYPE_CHECKING:
+    from sharptable.tables import Table
 
 
 class BoldCellFormatter(CellFormatter):
@@ -47,7 +51,7 @@ class BoldCellFormatter(CellFormatter):
 
         raise ValueError
 
-    def apply(self, table: Table) -> None:
+    def apply(self, table: "Table") -> None:
         """
         Apply transform to sharptable.
 

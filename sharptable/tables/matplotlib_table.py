@@ -1,11 +1,13 @@
 import pathlib
-from typing import Tuple
+from typing import TYPE_CHECKING, Tuple
 
 import matplotlib
 import matplotlib.pyplot as plt
 
-from sharptable.datastores import Datastore
 from sharptable.tables.table import Table
+
+if TYPE_CHECKING:
+    from sharptable.datastores import Datastore
 
 
 class MatplotlibTable(Table):
@@ -13,7 +15,7 @@ class MatplotlibTable(Table):
     Matplotlib based table.
     """
 
-    def __init__(self, datastore: Datastore):
+    def __init__(self, datastore: "Datastore"):
         """
         Args:
             datastore: sharptable datastore.
