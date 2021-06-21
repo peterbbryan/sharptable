@@ -3,4 +3,4 @@ isort==5.8.0
 matplotlib==3.3.4
 mypy==0.901
 pandas==1.1.5
-pylint==2.7.4
+pylint==2.8.3
