@@ -16,6 +16,7 @@ class CellFormatter(Formatter):
         self._row = row
         self._column = column
 
+    @property
     def row(self) -> int:
         """
         Row number of the cell being formatted.
@@ -23,6 +24,7 @@ class CellFormatter(Formatter):
 
         return self._row
 
+    @property
     def column(self) -> int:
         """
         Column number of the cell being formatted

@@ -44,7 +44,10 @@ def test_matplotlib_cell_bolding() -> None:
     datastore = sharptable.datastores.PandasDatastore(dataframe)
     table = sharptable.tables.MatplotlibTable(datastore)
 
-    bold_formatter = sharptable.formatters.BoldCellFormatter(1, 2)
+    bold_formatter = sharptable.formatters.BoldCellFormatter(1, 1)
+    table.formatter = bold_formatter
+
+    table.savefig("temp")
 
 
 def test_basic_matplotlib_table_save() -> None:
@@ -57,4 +60,4 @@ def test_basic_matplotlib_table_save() -> None:
     datastore = sharptable.datastores.PandasDatastore(dataframe)
     table = sharptable.tables.MatplotlibTable(datastore)
 
-    table.savefig("temp")
+    # table.savefig("temp")

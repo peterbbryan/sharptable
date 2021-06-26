@@ -43,6 +43,12 @@ class MatplotlibTable(Table):
 
         return self._ax
 
+    @property
+    def table(self):
+        """ Table getter """
+
+        return self._table
+
     def _apply_formatter(self) -> None:
         """
         Apply all formatters.
@@ -51,7 +57,7 @@ class MatplotlibTable(Table):
         if self._formatter is None:
             return
 
-        self._formatter.apply(self._table)
+        self._formatter.apply(self)
 
     @staticmethod
     def _get_bounding_box(padding_px: int) -> Tuple:
@@ -71,6 +77,9 @@ class MatplotlibTable(Table):
             path: Path to write table to.
             extension: TODO
         """
+
+        # apply all formatters before showing
+        self._apply_formatter()
 
         save_path = pathlib.Path(path).with_suffix(extension)
 

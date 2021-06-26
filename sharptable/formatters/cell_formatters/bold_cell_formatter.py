@@ -34,7 +34,9 @@ class BoldCellFormatter(CellFormatter):
             Matplotlib cell from table at the row, col index.
         """
 
-        return table.ax[self.row, self.column]
+        cell = table.table[self.row, self.column]
+
+        return cell
 
     def _matplotlib_apply(self, table: MatplotlibTable) -> None:
         """
@@ -46,10 +48,7 @@ class BoldCellFormatter(CellFormatter):
 
         # get cell being modified
         cell = self._get_matplotlib_cell(table=table)
-
-        print(cell)
-
-        raise ValueError
+        cell._text.set_fontweight("bold")  # pylint: disable=protected-access
 
     def apply(self, table: "Table") -> None:
         """
