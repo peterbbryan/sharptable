@@ -21,7 +21,7 @@ def _sample_pandas_df() -> pd.DataFrame:
 
 def test_basic_matplotlib_table_visualization() -> None:
     """
-    Basic plotting test.
+    Basic plotting test. Ensure end to end without failure.
     """
 
     dataframe = _sample_pandas_df()
@@ -32,32 +32,25 @@ def test_basic_matplotlib_table_visualization() -> None:
     table.show()
 
 
-def test_matplotlib_cell_bolding() -> None:
+def test_matplotlib_cell_bolding_single() -> None:
     """
     Test cell bolding.
-    
     """
-    # pylint: disable-all
+    # pylint: disable=protected-access
 
     dataframe = _sample_pandas_df()
 
+    #
     datastore = sharptable.datastores.PandasDatastore(dataframe)
     table = sharptable.tables.MatplotlibTable(datastore)
-
     bold_formatter = sharptable.formatters.BoldCellFormatter(1, 1)
     table.formatter = bold_formatter
 
-    table.savefig("temp")
+    table.show()
 
+    for cell_id, cell in table.table.get_celld().items():
 
-def test_basic_matplotlib_table_save() -> None:
-    """
-    Test table save to image.
-    """
-
-    dataframe = _sample_pandas_df()
-
-    datastore = sharptable.datastores.PandasDatastore(dataframe)
-    table = sharptable.tables.MatplotlibTable(datastore)
-
-    # table.savefig("temp")
+        if cell_id == (1, 1):
+            assert cell._text.get_fontweight() == "bold"
+        else:
+            assert cell._text.get_fontweight() == "normal"
