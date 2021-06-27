@@ -54,3 +54,12 @@ def test_matplotlib_cell_bolding_single() -> None:
             assert cell._text.get_fontweight() == "bold"
         else:
             assert cell._text.get_fontweight() == "normal"
+
+
+def test_matplotlib_cell_facecolor_single() -> None:
+    """
+    Test cell background coloring.
+    """
+
+    # TODO: demo of set facecolor
+    ...

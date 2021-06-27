@@ -18,8 +18,8 @@ class BoldCellFormatter(CellFormatter):
     def __init__(self, row: int, column: int):
         """
         Args:
-            row: *see super*
-            column: *see super*
+            row: Row number of the cell being formatted.
+            column: Column number of the cell being formatted
         """
 
         super().__init__(row=row, column=column)
