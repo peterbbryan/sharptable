@@ -1,5 +1,5 @@
 PYTHON = python3
-PYTHON_FILES := $(shell find . -name "*.py")
+PYTHON_FILES := $(shell find . -name "*.py" -not -path "./docs*")
 
 .PHONY = format check test
 
