@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>sharptable documentation! &#8212; sharptable  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="sharptable-documentation">
+<h1>sharptable documentation!<a class="headerlink" href="#sharptable-documentation" title="Permalink to this headline">¶</a></h1>
+<section id="datastores">
+<h2>Datastores<a class="headerlink" href="#datastores" title="Permalink to this headline">¶</a></h2>
+<section id="module-sharptable.datastores.datastore">
+<span id="datastore-abc"></span><h3>Datastore ABC<a class="headerlink" href="#module-sharptable.datastores.datastore" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="sharptable.datastores.datastore.Datastore">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sharptable.datastores.datastore.</span></span><span class="sig-name descname"><span class="pre">Datastore</span></span><a class="headerlink" href="#sharptable.datastores.datastore.Datastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>ABC for sharptable datastore types.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.datastores.datastore.Datastore.column_names">
+<em class="property"><span class="pre">abstract</span> <span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">column_names</span></span><em class="property"><span class="pre">:</span> <span class="pre">List[Any]</span></em><a class="headerlink" href="#sharptable.datastores.datastore.Datastore.column_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Column labels for the table.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.datastores.datastore.Datastore.row_names">
+<em class="property"><span class="pre">abstract</span> <span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">row_names</span></span><em class="property"><span class="pre">:</span> <span class="pre">List[Any]</span></em><a class="headerlink" href="#sharptable.datastores.datastore.Datastore.row_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Row labels for the table.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.datastores.datastore.Datastore.values">
+<em class="property"><span class="pre">abstract</span> <span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="pre">:</span> <span class="pre">Any</span></em><a class="headerlink" href="#sharptable.datastores.datastore.Datastore.values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data structure for table values.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="id1">
+<h3>Datastores<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-sharptable.datastores.pandas_datastore"></span><dl class="py class">
+<dt class="sig sig-object py" id="sharptable.datastores.pandas_datastore.PandasDatastore">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sharptable.datastores.pandas_datastore.</span></span><span class="sig-name descname"><span class="pre">PandasDatastore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sharptable.datastores.pandas_datastore.PandasDatastore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pandas DataFrame backing datastore for table.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.datastores.pandas_datastore.PandasDatastore.column_names">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">column_names</span></span><em class="property"><span class="pre">:</span> <span class="pre">List[Any]</span></em><a class="headerlink" href="#sharptable.datastores.pandas_datastore.PandasDatastore.column_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Column labels for the table.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.datastores.pandas_datastore.PandasDatastore.row_names">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">row_names</span></span><em class="property"><span class="pre">:</span> <span class="pre">List[Any]</span></em><a class="headerlink" href="#sharptable.datastores.pandas_datastore.PandasDatastore.row_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Row labels for the table.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.datastores.pandas_datastore.PandasDatastore.values">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#sharptable.datastores.pandas_datastore.PandasDatastore.values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data structure for table values.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-sharptable.formatters.formatter">
+<span id="formatter-abc"></span><h3>Formatter ABC<a class="headerlink" href="#module-sharptable.formatters.formatter" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="sharptable.formatters.formatter.Formatter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sharptable.formatters.formatter.</span></span><span class="sig-name descname"><span class="pre">Formatter</span></span><a class="headerlink" href="#sharptable.formatters.formatter.Formatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>ABC for sharptable table types.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sharptable.formatters.formatter.Formatter.apply">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Table</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#sharptable.formatters.formatter.Formatter.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transform to sharptable.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>table: Table that formatter is applied to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-sharptable.formatters.cell_formatter">
+<span id="cell-formatter-abc"></span><h3>Cell Formatter ABC<a class="headerlink" href="#module-sharptable.formatters.cell_formatter" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="sharptable.formatters.cell_formatter.CellFormatter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sharptable.formatters.cell_formatter.</span></span><span class="sig-name descname"><span class="pre">CellFormatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sharptable.formatters.cell_formatter.CellFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>ABC for sharptable cells.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.formatters.cell_formatter.CellFormatter.column">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">column</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#sharptable.formatters.cell_formatter.CellFormatter.column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Column number of the cell being formatted</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.formatters.cell_formatter.CellFormatter.row">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">row</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#sharptable.formatters.cell_formatter.CellFormatter.row" title="Permalink to this definition">¶</a></dt>
+<dd><p>Row number of the cell being formatted.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-sharptable.formatters.cell_formatters.bold_cell_formatter">
+<span id="cell-formatters"></span><h3>Cell Formatters<a class="headerlink" href="#module-sharptable.formatters.cell_formatters.bold_cell_formatter" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="sharptable.formatters.cell_formatters.bold_cell_formatter.BoldCellFormatter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sharptable.formatters.cell_formatters.bold_cell_formatter.</span></span><span class="sig-name descname"><span class="pre">BoldCellFormatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sharptable.formatters.cell_formatters.bold_cell_formatter.BoldCellFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bold a specific cell.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sharptable.formatters.cell_formatters.bold_cell_formatter.BoldCellFormatter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Table</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#sharptable.formatters.cell_formatters.bold_cell_formatter.BoldCellFormatter.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transform to sharptable.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>table: Table that formatter is applied to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-sharptable.formatters.cell_formatters.facecolor_cell_formatter"></span><dl class="py class">
+<dt class="sig sig-object py" id="sharptable.formatters.cell_formatters.facecolor_cell_formatter.FacecolorCellFormatter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sharptable.formatters.cell_formatters.facecolor_cell_formatter.</span></span><span class="sig-name descname"><span class="pre">FacecolorCellFormatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sharptable.formatters.cell_formatters.facecolor_cell_formatter.FacecolorCellFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Color the background of a specific cell.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sharptable.formatters.cell_formatters.facecolor_cell_formatter.FacecolorCellFormatter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Table</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#sharptable.formatters.cell_formatters.facecolor_cell_formatter.FacecolorCellFormatter.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply transform to sharptable.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>table: Table that formatter is applied to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-sharptable.formatters.composite_formatter">
+<span id="composite-formatter"></span><h3>Composite Formatter<a class="headerlink" href="#module-sharptable.formatters.composite_formatter" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="sharptable.formatters.composite_formatter.CompositeFormatter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sharptable.formatters.composite_formatter.</span></span><span class="sig-name descname"><span class="pre">CompositeFormatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formatters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sharptable.formatters.formatter.Formatter" title="sharptable.formatters.formatter.Formatter"><span class="pre">sharptable.formatters.formatter.Formatter</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sharptable.formatters.composite_formatter.CompositeFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class allowing for multiple formatters to be applied.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sharptable.formatters.composite_formatter.CompositeFormatter.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">formatter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#sharptable.formatters.formatter.Formatter" title="sharptable.formatters.formatter.Formatter"><span class="pre">sharptable.formatters.formatter.Formatter</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#sharptable.formatters.composite_formatter.CompositeFormatter.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new formatter to list of formatters.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>formatter: Formatter to add to list of formatters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-sharptable.tables.table">
+<span id="table-abc"></span><h3>Table ABC<a class="headerlink" href="#module-sharptable.tables.table" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="sharptable.tables.table.Table">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sharptable.tables.table.</span></span><span class="sig-name descname"><span class="pre">Table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datastore</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Datastore</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sharptable.tables.table.Table" title="Permalink to this definition">¶</a></dt>
+<dd><p>ABC for sharptable table types.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.tables.table.Table.formatter">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">formatter</span></span><em class="property"><span class="pre">:</span> <span class="pre">Optional[Formatter]</span></em><a class="headerlink" href="#sharptable.tables.table.Table.formatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Formatter getter</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sharptable.tables.table.Table.savefig">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">savefig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'.png'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#sharptable.tables.table.Table.savefig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save table to path.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>path: Path to write table to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sharptable.tables.table.Table.show">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#sharptable.tables.table.Table.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show table in interactive sessions.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-sharptable.tables.matplotlib_table">
+<span id="tables"></span><h3>Tables<a class="headerlink" href="#module-sharptable.tables.matplotlib_table" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="sharptable.tables.matplotlib_table.MatplotlibTable">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sharptable.tables.matplotlib_table.</span></span><span class="sig-name descname"><span class="pre">MatplotlibTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datastore</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Datastore</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sharptable.tables.matplotlib_table.MatplotlibTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matplotlib based table.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.tables.matplotlib_table.MatplotlibTable.ax">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">ax</span></span><a class="headerlink" href="#sharptable.tables.matplotlib_table.MatplotlibTable.ax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ax getter</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sharptable.tables.matplotlib_table.MatplotlibTable.savefig">
+<span class="sig-name descname"><span class="pre">savefig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'.png'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#sharptable.tables.matplotlib_table.MatplotlibTable.savefig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save table to path.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>path: Path to write table to.
+extension: TODO</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sharptable.tables.matplotlib_table.MatplotlibTable.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#sharptable.tables.matplotlib_table.MatplotlibTable.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show table in interactive sessions.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sharptable.tables.matplotlib_table.MatplotlibTable.table">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">table</span></span><a class="headerlink" href="#sharptable.tables.matplotlib_table.MatplotlibTable.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table getter</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">sharptable</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Peter Bryan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
