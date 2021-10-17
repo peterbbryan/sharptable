@@ -84,6 +84,7 @@ class MatplotlibTable(Table):
         save_path = pathlib.Path(path).with_suffix(extension)
 
         self._fig.canvas.draw()
+
         # get bounding box of table
         points = self._table.get_window_extent(
             plt.gcf()._cachedRenderer  # pylint: disable=protected-access

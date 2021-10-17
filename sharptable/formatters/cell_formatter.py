@@ -1,3 +1,7 @@
+import matplotlib
+
+from sharptable.tables.matplotlib_table import MatplotlibTable
+
 from .formatter import Formatter
 
 
@@ -15,6 +19,20 @@ class CellFormatter(Formatter):
 
         self._row = row
         self._column = column
+
+    def _get_matplotlib_cell(self, table: MatplotlibTable) -> matplotlib.table.Cell:
+        """
+        Get matplotlib cell at index.
+
+        Args:
+            table: MatplotlibTable containing cell.
+        Returns:
+            Matplotlib cell from table at the row, col index.
+        """
+
+        cell = table.table[self.row, self.column]
+
+        return cell
 
     @property
     def row(self) -> int:

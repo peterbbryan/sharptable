@@ -40,9 +40,9 @@ def test_matplotlib_cell_bolding_single() -> None:
 
     dataframe = _sample_pandas_df()
 
-    #
     datastore = sharptable.datastores.PandasDatastore(dataframe)
     table = sharptable.tables.MatplotlibTable(datastore)
+
     bold_formatter = sharptable.formatters.BoldCellFormatter(1, 1)
     table.formatter = bold_formatter
 
@@ -60,6 +60,21 @@ def test_matplotlib_cell_facecolor_single() -> None:
     """
     Test cell background coloring.
     """
+    # pylint: disable=protected-access
 
-    # TODO: demo of set facecolor
-    ...
+    dataframe = _sample_pandas_df()
+
+    datastore = sharptable.datastores.PandasDatastore(dataframe)
+    table = sharptable.tables.MatplotlibTable(datastore)
+
+    facecolor_formatter = sharptable.formatters.FacecolorCellFormatter(1, 1, "red")
+    table.formatter = facecolor_formatter
+
+    table.show()
+
+    for cell_id, cell in table.table.get_celld().items():
+
+        if cell_id == (1, 1):
+            assert cell._facecolor == (1.0, 0.0, 0.0, 1.0)
+        else:
+            assert cell._facecolor == (1.0, 1.0, 1.0, 1.0)
