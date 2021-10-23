@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Iterable, Optional
+from typing import TYPE_CHECKING, List, Optional
 
 from .formatter import Formatter
 
@@ -11,16 +11,15 @@ class CompositeFormatter(Formatter):
     Class allowing for multiple formatters to be applied.
     """
 
-    def __init__(self, formatters: Optional[Iterable[Formatter]] = None):
+    def __init__(self, formatters: Optional[List[Formatter]] = None):
         """
         Args:
             formatters: Optional list of formatters to apply.
         """
 
-        # set list of formatters
-        if formatters is None:
-            self._formatters = []
-        else:
+        self._formatters: List[Formatter] = []
+
+        if formatters is not None:
             self._formatters = formatters
 
     def add(self, formatter: Formatter) -> None:
