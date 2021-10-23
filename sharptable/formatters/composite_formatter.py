@@ -1,6 +1,9 @@
-from typing import List, Optional
+from typing import TYPE_CHECKING, Iterable, Optional
 
 from .formatter import Formatter
+
+if TYPE_CHECKING:
+    from sharptable.tables import Table
 
 
 class CompositeFormatter(Formatter):
@@ -8,7 +11,7 @@ class CompositeFormatter(Formatter):
     Class allowing for multiple formatters to be applied.
     """
 
-    def __init__(self, formatters: Optional[List[Formatter]] = None):
+    def __init__(self, formatters: Optional[Iterable[Formatter]] = None):
         """
         Args:
             formatters: Optional list of formatters to apply.
@@ -29,3 +32,14 @@ class CompositeFormatter(Formatter):
         """
 
         self._formatters.append(formatter)
+
+    def apply(self, table: "Table") -> None:
+        """
+        Apply transform to sharptable.
+
+        Args:
+            table: Table that formatter is applied to.
+        """
+
+        for formatter in self._formatters:
+            formatter.apply(table)

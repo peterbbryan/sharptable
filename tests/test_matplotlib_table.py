@@ -43,7 +43,7 @@ def test_matplotlib_cell_bolding_single() -> None:
     datastore = sharptable.datastores.PandasDatastore(dataframe)
     table = sharptable.tables.MatplotlibTable(datastore)
 
-    bold_formatter = sharptable.formatters.BoldCellFormatter(1, 1)
+    bold_formatter = sharptable.formatters.BoldCellFormatter(row=1, column=1)
     table.formatter = bold_formatter
 
     table.show()
@@ -67,7 +67,9 @@ def test_matplotlib_cell_facecolor_single() -> None:
     datastore = sharptable.datastores.PandasDatastore(dataframe)
     table = sharptable.tables.MatplotlibTable(datastore)
 
-    facecolor_formatter = sharptable.formatters.FacecolorCellFormatter(1, 1, "red")
+    facecolor_formatter = sharptable.formatters.FacecolorCellFormatter(
+        row=1, column=1, color="red"
+    )
     table.formatter = facecolor_formatter
 
     table.show()
@@ -78,3 +80,35 @@ def test_matplotlib_cell_facecolor_single() -> None:
             assert cell._facecolor == (1.0, 0.0, 0.0, 1.0)
         else:
             assert cell._facecolor == (1.0, 1.0, 1.0, 1.0)
+
+
+def test_composite_cell_facecolor_bolding_single_cell():
+    """
+    Test combination of formatters with the composite formatter, applied to a single cell.
+    """
+    # pylint: disable=protected-access
+
+    dataframe = _sample_pandas_df()
+
+    datastore = sharptable.datastores.PandasDatastore(dataframe)
+    table = sharptable.tables.MatplotlibTable(datastore)
+
+    facecolor_formatter = sharptable.formatters.FacecolorCellFormatter(
+        row=1, column=1, color="red"
+    )
+    bold_formatter = sharptable.formatters.BoldCellFormatter(row=1, column=1)
+    composite_formatter = sharptable.formatters.CompositeFormatter(
+        formatters=[facecolor_formatter, bold_formatter]
+    )
+    table.formatter = composite_formatter
+
+    table.show()
+
+    for cell_id, cell in table.table.get_celld().items():
+
+        if cell_id == (1, 1):
+            assert cell._facecolor == (1.0, 0.0, 0.0, 1.0)
+            assert cell._text.get_fontweight() == "bold"
+        else:
+            assert cell._facecolor == (1.0, 1.0, 1.0, 1.0)
+            assert cell._text.get_fontweight() == "normal"
